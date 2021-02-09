@@ -1,4 +1,5 @@
 var all = document.querySelectorAll("*");
+var inputs = document.querySelectorAll("input");
 
 // Create a regex to match emails
 let matchEmail = /[-.\w]+@([\w-]+\.)+[\w-]{2,20}$/g;
@@ -10,6 +11,14 @@ const emails = [];
 all.forEach(function (tag) {
   if (tag.innerHTML.match(matchEmail)) {
     emails.push({ email: tag.innerHTML });
+  }
+});
+
+// Loop through Inputs too
+
+inputs.forEach(function (tag) {
+  if (tag.value.match(matchEmail)) {
+    emails.push({ email: tag.value });
     console.log(emails);
   }
 });
