@@ -7,27 +7,27 @@ let matchEmail = /[-.\w]+@([\w-]+\.)+[\w-]{2,20}$/g;
 // Create an array
 const emails = [];
 
-// Loop through all the html tag and check matchEmail (then add to email array where true)
-all.forEach(function (tag) {
-  if (tag.innerHTML.match(matchEmail)) {
-    emails.push({ email: tag.innerHTML });
-  }
-});
-
-// Loop through Inputs too
-
-inputs.forEach(function (tag) {
-  if (tag.value.match(matchEmail)) {
-    emails.push({ email: tag.value });
-    console.log(emails);
-  }
-});
-
 // Create a function to convert json to cvs then download
 
 const button = document.querySelector(".downloader_btn");
 
 button.addEventListener("click", () => {
+  // Loop through all the html tag and check matchEmail (then add to email array where true)
+  all.forEach(function (tag) {
+    if (tag.innerHTML.match(matchEmail)) {
+      emails.push({ email: tag.innerHTML });
+    }
+  });
+
+  // Loop through Inputs too
+
+  inputs.forEach(function (tag) {
+    if (tag.value.match(matchEmail)) {
+      emails.push({ email: tag.value });
+      console.log(emails);
+    }
+  });
+
   var json = emails;
   var csv = json
     .map(function (d) {
